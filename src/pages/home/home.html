@@ -1,0 +1,55 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="">
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment>
+      <ion-segment-button value="camera" (click)="displaycam()">
+        Pictures
+      </ion-segment-button>
+      <ion-segment-button value="video" (click)="displayvid()">
+        Videos
+      </ion-segment-button>
+      <ion-segment-button value="audio" (click)="displayaud()">
+          Audio
+        </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div  *ngIf="cam" >
+      
+        <img *ngFor="let image of images" src="{{image}}" type="image/jpeg">
+      </div>
+    <ion-fab right bottom *ngIf="cam">
+      <button ion-fab color="primary" (click)="uploads('camera')"><ion-icon name="camera"></ion-icon></button>
+    </ion-fab>
+
+    
+    <div *ngIf="vid">
+      <video  *ngFor="let video of videos" width="320" height="240"  controls>
+        <source  src="{{video}}"  type="video/mp4">
+      </video>
+    </div>
+    <ion-fab right bottom *ngIf="vid">
+      <button ion-fab color="primary" (click)="uploads('video')"><ion-icon name="videocam"></ion-icon></button>
+    </ion-fab>
+    <div *ngIf="aud">
+    <audio *ngFor="let audio of audios" controls>
+      <source  src="{{audio}}" type="audio/mpeg">
+    </audio>
+  </div>
+  <ion-fab right bottom *ngIf="aud">
+      <button ion-fab color="primary" (click)="uploads('audio')"><ion-icon name="mic"></ion-icon></button>
+    </ion-fab>
+</ion-content>

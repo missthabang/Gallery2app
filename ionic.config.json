@@ -1,0 +1,7 @@
+{
+  "name": "GalleryTwo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
